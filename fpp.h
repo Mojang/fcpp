@@ -169,6 +169,10 @@ struct fppTag {
 #define FPPTAG_FILEOPENFUNC 36 /* data is function pointer to a
 			   "FILE* (*)(char * filename, char * mode, void * userdata)", default is NULL */
 
+/* Include function. If set, this is called when FPP tries to open an #include: */
+#define FPPTAG_INCLUDEFUNC 37 /* data is function pointer to a
+			   "int (*)(void *, char * filename, int local, void * userdata)", default is NULL */
+
 int fppPreProcess(struct fppTag *);
 
 #ifdef __cplusplus
