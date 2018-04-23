@@ -255,6 +255,8 @@ struct Global {
   char allowincludelocal;
 
   int (*openinclude)(void *, char *, int, void *);
+
+  FILE* (*openfile)(char *,char *, void *);
 };
 
 typedef enum {
