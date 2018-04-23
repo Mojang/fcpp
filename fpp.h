@@ -165,6 +165,10 @@ struct fppTag {
 /* Allow include "X" (rather than <X>) to search local files, default is FPP_TRUE */
 #define FPPTAG_ALLOW_INCLUDE_LOCAL 35
 
+/* Include function. If set, this is called when FPP tries to open an #include: */
+#define FPPTAG_INCLUDEFUNC 36 /* data is function pointer to a
+			   "int (*)(void *, char * filename, int local, void * userdata)", default is NULL */
+
 int fppPreProcess(struct fppTag *);
 
 #ifdef __cplusplus

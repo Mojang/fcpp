@@ -629,6 +629,10 @@ ReturnCode fpp_openinclude( struct Global *global,
     char tmpname[NWORK]; /* Filename work area    */
     size_t len;
 
+    if (global->openinclude)
+        return( global->openinclude(global, filename, searchlocal, global->userdata) );
+
+
     if( filename[0] == '/' )
         {
         if( ! fpp_openfile( global, filename ) )
