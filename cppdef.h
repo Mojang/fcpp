@@ -299,11 +299,11 @@
 #endif
 
 #ifndef NBUFF
-#define NBUFF			512
+#define NBUFF			(4 * 1024)
 #endif
 
 #ifndef NWORK
-#define NWORK			512
+#define NWORK			(4 * 1024)
 #endif
 
 #ifndef NEXP
