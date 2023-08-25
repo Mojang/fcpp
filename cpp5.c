@@ -307,16 +307,15 @@ ReturnCode fpp_eval(struct Global *global, int *eval)
 	}
 	opp->op = op;
 	opp->prec = prec;
-	skip = (valp[-1] != 0);         /* Short-circuit tester */
 	/*
 	 * Do the short-circuit stuff here.  Short-circuiting
 	 * stops automagically when operators are evaluated.
 	 */
-	if ((op == OP_ANA && !skip)
-	    || (op == OP_ORO && skip))
+	if ((op == OP_ANA && valp[-1] == 0)
+	    || (op == OP_ORO && valp[-1] != 0))
 	  opp->skip = S_ANDOR;	/* And/or skip starts	*/
 	else if (op == OP_QUE)          /* Start of ?: operator */
-	  opp->skip = (op1 & S_ANDOR) | ((!skip) ? S_QUEST : 0);
+	  opp->skip = (op1 & S_ANDOR) | ((valp[-1] == 0) ? S_QUEST : 0);
 	else if (op == OP_COL) {        /* : inverts S_QUEST    */
 	  opp->skip = (op1 & S_ANDOR)
 	    | (((op1 & S_QUEST) != 0) ? 0 : S_QUEST);
