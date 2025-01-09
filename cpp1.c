@@ -114,13 +114,13 @@ int fppPreProcess(struct fppTag *tags)
   global->warnnoinclude = FPP_TRUE;
   global->showversion = FPP_TRUE;
   global->showincluded = FPP_FALSE;
-  global->showspace = FPP_FALSE;
+  global->showspace = FPP_TRUE;
   global->nestcomments = FPP_FALSE;
   global->warnnestcomments = FPP_FALSE;
   global->outputfile = FPP_TRUE;
   global->included = 0;
 
-  global->comment = FPP_FALSE;
+  global->comment = FPP_TRUE;
   global->rightconcat = FPP_FALSE;
   global->work[0] = '\0';
   global->initialfunc = NULL;
